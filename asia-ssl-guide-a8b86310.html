@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mk体育 – 温故知新 · 收藏此刻</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #fce9d8 0%, #f7d9c4 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      line-height: 1.7;
+      color: #3d2e24;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      width: 100%;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 40px 16px 40px 16px;
+      box-shadow: 0 12px 28px rgba(160, 100, 60, 0.15), 0 4px 8px rgba(0, 0, 0, 0.04);
+      padding: 2.4rem 2.8rem;
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      border: 1px solid rgba(255, 220, 190, 0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 32px rgba(140, 80, 40, 0.18);
+    }
+
+    .hero-card {
+      background: rgba(255, 244, 235, 0.7);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      border-radius: 60px 20px 60px 20px;
+      padding: 3.2rem 2.8rem;
+      border: 1px solid #ffe7d6;
+    }
+
+    .hero-card h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #4f3628;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-card .sub {
+      font-size: 1.2rem;
+      color: #6b4e3a;
+      opacity: 0.9;
+      max-width: 580px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .tagline {
+      display: inline-block;
+      background: #dbb79b;
+      color: #2f211a;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      font-weight: 450;
+      letter-spacing: 0.3px;
+      box-shadow: inset 0 1px 4px rgba(255, 215, 180, 0.6);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    .card h2 {
+      font-size: 1.7rem;
+      font-weight: 480;
+      margin-bottom: 1.2rem;
+      border-left: 6px solid #c7926a;
+      padding-left: 1rem;
+      color: #422f22;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 450;
+      margin: 1.6rem 0 0.8rem;
+      color: #4d3628;
+    }
+
+    .card p {
+      margin-bottom: 1rem;
+      color: #3f3025;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+      margin: 1.2rem 0 0.6rem;
+    }
+
+    .feature-list li {
+      background: #f3e1d1;
+      padding: 0.3rem 1rem 0.3rem 1.6rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #2f2019;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.8rem;
+      font-weight: bold;
+      color: #b47b58;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.2rem 0 0.2rem;
+    }
+
+    .scene-item {
+      background: rgba(235, 207, 184, 0.3);
+      padding: 0.8rem 1.4rem;
+      border-radius: 60px;
+      border: 1px solid #dbb49a;
+      font-size: 0.95rem;
+      flex: 1 0 auto;
+      max-width: 200px;
+      color: #3b2b1f;
+      backdrop-filter: blur(2px);
+    }
+
+    .link-sentence {
+      background: #faeedf;
+      padding: 1.8rem 2.2rem;
+      border-radius: 60px 16px 60px 16px;
+      margin: 1.8rem 0 0.2rem;
+      border-left: 4px solid #ca936d;
+      font-size: 1.1rem;
+    }
+
+    .link-sentence a {
+      color: #6d3f1f;
+      background: #fff6ea;
+      text-decoration: none;
+      font-weight: 540;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      border: 1px solid #c99066;
+      transition: all 0.2s;
+      display: inline-block;
+      margin: 0.2rem 0.1rem;
+    }
+
+    .link-sentence a:hover {
+      background: #ca936d;
+      color: #fcf3e9;
+      border-color: #a56e48;
+      transform: scale(1.02);
+    }
+
+    .faq-mini {
+      background: #f9ede2;
+      padding: 1.4rem 1.8rem;
+      border-radius: 24px;
+      margin-top: 1.4rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 500;
+      color: #443124;
+      padding: 0.4rem 0;
+    }
+
+    .faq-mini summary:hover {
+      color: #7a543b;
+    }
+
+    .faq-mini p {
+      margin: 0.5rem 0 0.2rem 1rem;
+      color: #4c3829;
+    }
+
+    .btn-soft {
+      display: inline-block;
+      background: #dbb294;
+      color: #2f1f17;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 510;
+      border: none;
+      transition: 0.2s;
+      box-shadow: 0 2px 6px rgba(120, 70, 30, 0.1);
+    }
+
+    .btn-soft:hover {
+      background: #c58058;
+      color: #fef7f1;
+    }
+
+    .mt-2 {
+      margin-top: 1.2rem;
+    }
+
+    .text-small {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 680px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 1.8rem 1.4rem;
+      }
+      .hero-card {
+        padding: 2rem 1.2rem;
+      }
+      .hero-card h1 {
+        font-size: 2.2rem;
+      }
+      .link-sentence {
+        padding: 1.2rem 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="card-grid">
+
+      <!-- 主视觉・再次光临 -->
+      <div class="hero-card">
+        <h1>又见面了</h1>
+        <div class="sub">收藏此刻，慢慢翻阅。每次回来，都有熟悉的安心感。</div>
+        <div class="tagline">✦ 温故知新 · 常来常新 ✦</div>
+        <p style="margin-top: 1.8rem; max-width: 620px; margin-left: auto; margin-right: auto;">
+          如果你曾驻足过<a href="https://asia-ssl-mksport.com" style="color:#633f27; text-decoration:underline; text-underline-offset:4px; font-weight:500;">mk体育</a>，那这里始终有一处安静的角落——
+          不需要刻意记住什么，只是偶尔回来看看，像翻开一本折了角的书。
+        </p>
+      </div>
+
+      <!-- 两列信息卡片 -->
+      <div class="two-col">
+        <!-- 用途卡片：收藏与回访 -->
+        <div class="card">
+          <h2>📌 收藏 · 回访</h2>
+          <p>有些地方，适合放进浏览器的书签栏，也适合留在脑海里。mk体育就是这样的存在——当你忽然想找一点熟悉的节奏，不必从头搜索，<strong>收藏夹里的老朋友</strong>就在那儿。</p>
+          <ul class="feature-list">
+            <li>随手收藏，随时回来</li>
+            <li>内容自然沉淀</li>
+            <li>不打扰，常陪伴</li>
+          </ul>
+          <p style="margin-top: 0.8rem;">不用刻意惦记，想起时自然就来了。</p>
+          <div style="margin-top: 1.2rem;">
+            <span class="btn-soft">⋮ 保持关注</span>
+          </div>
+        </div>
+
+        <!-- 适合人群：什么样的你会喜欢这里 -->
+        <div class="card">
+          <h2>👤 适合这样的你</h2>
+          <p>喜欢安静浏览、不急于获取信息的人；习惯把好地方存起来、慢慢看的人；或者只是偶然路过，却觉得“这里还不错”的人。</p>
+          <div class="scene-grid">
+            <span class="scene-item">🌿 日常翻阅</span>
+            <span class="scene-item">📖 收藏爱好者</span>
+            <span class="scene-item">☕ 悠闲浏览</span>
+            <span class="scene-item">🔖 回头客</span>
+          </div>
+          <p class="text-small" style="margin-top: 1rem;">没有标签，只有自在。</p>
+        </div>
+      </div>
+
+      <!-- 自然链接段落 -->
+      <div class="card" style="border-radius: 24px 50px 24px 50px;">
+        <h2 style="border-left-color: #ad7a58;">🔗 一段自然的话</h2>
+        <p>如果你愿意，可以把<a href="https://asia-ssl-mksport.com">mk体育</a>放在一个不太拥挤的地方——比如浏览器的一个文件夹，或者备忘录的某一行。它不会频繁变化，也不会催促你。当你某天再次打开，会发现内容依然在那里，平和如初。</p>
+        <div class="link-sentence">
+          “有些链接值得再次点开，就像有些地方值得再次路过。——<a href="https://asia-ssl-mksport.com">mk体育</a>就是那样一个地方。”
+        </div>
+        <p style="margin-top: 0.8rem;">不需要理由，只需记得曾经觉得不错。</p>
+      </div>
+
+      <!-- 提示 + FAQ 摘要 -->
+      <div class="card" style="border-radius: 16px 40px 16px 40px;">
+        <h2>💬 一些碎语</h2>
+        <p>每次访问，都是一次安静的连接。不必带着目的，四处看看就好。</p>
+        <div class="faq-mini">
+          <details>
+            <summary>为什么推荐收藏？</summary>
+            <p>网络世界纷杂，收藏夹像你自己的小花园。把<a href="https://asia-ssl-mksport.com">mk体育</a>放进去，多一个可以回去的地方。</p>
+          </details>
+          <details>
+            <summary>多久回来一次比较合适？</summary>
+            <p>没有标准答案。几天、几周、甚至几个月——这里不会消失，你回来时它还在。</p>
+          </details>
+          <details>
+            <summary>这里的内容会变吗？</summary>
+            <p>会自然生长，但不会大起大落。像一棵树，慢慢长出新的枝叶。</p>
+          </details>
+        </div>
+        <p class="text-small" style="margin-top: 1.2rem; text-align: right;">—— 谢谢你的再次光临 ——</p>
+      </div>
+
+      <!-- 安静的尾巴 -->
+      <div style="text-align: center; padding: 0.8rem 0 0.2rem; color: #5d4230; opacity: 0.7; font-size: 0.9rem;">
+        <span>常来 · 常新</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
